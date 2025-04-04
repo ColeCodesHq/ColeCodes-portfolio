@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uranus Designs</title>
+    <meta name="description" content="Uranus Designs - Creative design & layout, editing & formatting, printing services for businesses.">
+    <meta name="keywords" content="design, layout, editing, formatting, printing, services">
+    <meta name="author" content="ColeCodes">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #800020, #FFD700);
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+        header {
+            background-color: #800020;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideDown 0.8s ease-in-out;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .logo img {
+            width: 120px;
+            animation: rotateIn 1s ease-in-out;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin: 0 25px;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        nav ul li:nth-child(1) { animation-delay: 0.2s; }
+        nav ul li:nth-child(2) { animation-delay: 0.4s; }
+        nav ul li:nth-child(3) { animation-delay: 0.6s; }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav ul li a:hover {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+        .hero {
+            background: #FFD700;
+            color: #800020;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid #800020;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+        .page {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+        .show {
+            display: block;
+        }
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .service-item {
+            margin-bottom: 25px;
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-in-out forwards;
+        }
+        .service-item:nth-child(2) { animation-delay: 0.3s; }
+        .service-item:nth-child(3) { animation-delay: 0.6s; }
+        .contact p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .contact a {
+            text-decoration: none;
+            color: #800020;
+            font-weight: 600;
+        }
+        footer {
+            background-color: #800020;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(-180deg); }
+            to { opacity: 1; transform: rotate(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://media.istockphoto.com/id/2154381805/vector/cute-hand-drawn-cartoon-uranus-ice-planet-of-solar-system-and-galaxy-childish-simple-doodle.jpg?s=612x612&w=0&k=20&c=KBMwfsM09cYYg7YE63CpWdSarilddHuv7lE8WOylL9s=" alt="Uranus Designs Logo">
+        </div>
+        <h1>Uranus Designs</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('services')">Services</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Creative & Professional Design Solutions</h2>
+        <p>We offer top-tier design, layout, editing, and printing services tailored to your needs.</p>
+    </div>
+
+    <!-- Pages -->
+    <div id="home" class="page show container">
+        <h2>Welcome to Uranus Designs</h2>
+        <p>Your trusted partner in design, layout, and printing services. Our team ensures high-quality work for all your creative needs.</p>
+    </div>
+
+    <div id="services" class="page container">
+        <h2>Our Services</h2>
+        <div class="service-item">
+            <h3>Design & Layout</h3>
+            <p>We create professional and visually appealing designs that bring your ideas to life.</p>
+        </div>
+        <div class="service-item">
+            <h3>Editing & Formatting</h3>
+            <p>We refine and format your documents, presentations, and designs for maximum impact.</p>
+        </div>
+        <div class="service-item">
+            <h3>Printing</h3>
+            <p>High-quality printing services for all your business and personal needs.</p>
+        </div>
+    </div> 
+
+    <div id="contact" class="page container">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@uranusdesigns.co.za">info@uranusdesigns.co.za</a></p>
+        <p>Phone: <a href="tel:+2700000000">+27 00 000 0000</a></p>
+        <p>Website: <a href="https://www.uranusdesigns.co.za" target="_blank">www.uranusdesigns.co.za</a></p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('show');
+            });
+            document.getElementById(pageId).classList.add('show');
+        }
+    </script>
+
+</body>
+</html>

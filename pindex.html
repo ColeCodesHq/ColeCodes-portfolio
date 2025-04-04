@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ColeCodes Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+  <script>
+    // Firebase configuration (replace with your actual Firebase config)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0077b6;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #ffff00ce;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .project-card {
+      background-color: white;
+      color: #0077b6;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .project-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      color: #00b4d8;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background-color: #e0f7ff;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+
+    .project-card a:hover {
+      box-shadow: 0 0 15px 4px rgba(0, 180, 216, 0.7);
+      transform: scale(1.05);
+      color: #0077b6;
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Scroll Animation */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: opacity 0.5s ease, transform 0.7s ease;
+    }
+
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>My Portfolio</h1>
+
+  <div class="projects-container">
+    <!-- Uranus Designs Project -->
+    <div class="project-card scroll-animate" id="uranus-card">
+      <h2>Uranus Designs</h2>
+      <p>A 3-page website with creative layout, editing, and printing services. Features animations, custom colors, and a responsive layout.</p>
+      <a href="uranus-designs.html" target="_blank">View Project</a>
+    </div>
+
+    <!-- Matts Posters Project -->
+    <div class="project-card scroll-animate" id="matts-card">
+      <h2>Matts Posters</h2>
+      <p>A bold homepage for a poster-selling business. Shows pricing, contact info, and visuals. Simple layout with centered text and a red-toned background.</p>
+      <a href="matts-posters.html" target="_blank">View Project</a>
+    </div>
+
+    <!-- Sign Up & Login Project -->
+    <div class="project-card scroll-animate" id="signup-card">
+      <h2>Sign Up & Login</h2>
+      <p>Responsive user authentication page featuring separate login and signup forms. Clean design, accessible layout, and ready for Firebase backend integration.</p>
+      <a href="signup-login.html" target="_blank">View Project</a>
+    </div>
+  </div>
+
+  <script>
+    // Scroll animation logic
+    const scrollElements = document.querySelectorAll('.scroll-animate');
+
+    function checkVisibility() {
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      scrollElements.forEach((el) => {
+        const elTop = el.getBoundingClientRect().top;
+
+        if (elTop < triggerBottom) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // to trigger visibility on load
+  </script>
+
+</body>
+</html>
